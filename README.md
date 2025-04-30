@@ -4,6 +4,12 @@
 
 DroneComms aims to break down the barriers to scalable multi-UAV systems by providing an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. Leveraging the 2.4GHz Wi-Fi spectrum and a connectionless protocol, this project simplifies deployment by enabling UAVs to seamlessly exchange binary data through an ad-hoc network—all while integrating effortlessly with ROS 2. With DroneComms, UAVs can dynamically join or leave operations without centralized control or extensive pre-configuration.
 
+## Building
+Build all the packages, except the firmware package.
+`
+colcon build --symlink-install --packages-skip swarmtalk_firmware
+`
+
 ## System Architecture
 
 ![ROS2 Node Architecture](.assets/on-board-ros.svg "ROS")
@@ -16,7 +22,7 @@ The diagram above illustrates the ROS 2 nodes implemented in the communication m
 This architecture ensures efficient and dynamic communication across UAVs, supporting flexible mission operations.
 
 ## Key Features
-- **Decentralized Communication:** No need for centralized infrastructure.
+- **Decentralized Communication:** No need for existing infrastructure.
 - **Ad-hoc Networking:** UAVs can join or leave the network dynamically.
 - **Seamless ROS 2 Integration:** Supports a range of UAV operations through native ROS 2 compatibility.
 - **Low-cost Implementation:** Utilizes widely available hardware such as ESP32 modules.

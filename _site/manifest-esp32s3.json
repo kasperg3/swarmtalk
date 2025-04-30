@@ -10,7 +10,7 @@
                     "offset": 0
                 },
                 {
-                    "path": "firmware-esp32s3/esp_comms.bin",
+                    "path": "firmware-esp32s3/swarmtalk_firmware.bin",
                     "offset": 65536
                 }
             ]
