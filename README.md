@@ -1,5 +1,5 @@
 # SwarmTalk
-![swarmtalk Overview](_site/intro_picture.svg "DroneCoswarmtalkmms")
+![swarmtalk Overview](_site/intro_picture.svg "SwarmTalk")
 
 swarmtalk aims to break down the barriers to scalable multi-UAV systems by providing an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. Leveraging the 2.4GHz Wi-Fi spectrum and a connectionless protocol, this project simplifies deployment by enabling UAVs to seamlessly exchange binary data through an ad-hoc network—all while integrating effortlessly with ROS 2. With swarmtalk, UAVs can dynamically join or leave operations without centralized control or extensive pre-configuration.
 
@@ -31,7 +31,7 @@ This architecture ensures efficient and dynamic communication across UAVs, suppo
 - [Planning Module](./planning/README.md)  
   Contains tools and algorithms for autonomous UAV path planning.
 
-- [Communication Firmware](./communication_firmware/README.md)  
+- [Communication Firmware](./firmware/README.md)  
   ESP32 firmware enabling the communication capabilities of the system.
 
 
@@ -44,7 +44,7 @@ If you use swarmtalk in your research, please cite as follows:
   author={Gr{\u{o}}ntved, Kasper AR and Ladig, Robert and Lyhne Christensen, Anders},
   booktitle={2024 International Conference on Unmanned Aircraft Systems (ICUAS)},
   year={2025},
-  note={Under review},
+  note={Accepted},
   organization={IEEE}
 }
 ```

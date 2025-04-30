@@ -6,59 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwarmTalk</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+    
         * {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+    
         body {
-            background-color: #0d1b2a; /* Deep navy blue */
-            color: #e0e1dd; /* Light gray */
+            background-color: #f8f9fa; /* Soft off-white */
+            color: #2d3436; /* Dark charcoal gray */
             line-height: 1.6;
         }
-
+    
         .main {
             width: 90%;
             margin: 20px auto;
             max-width: 750px;
         }
-
+    
         h2, h3 {
-            color: #00a8e8; /* Bright blue */
+            color: #2a6f97; /* Deep ocean blue */
+            font-weight: 500;
         }
-
+    
         a {
-            color: #0077b6; /* Muted blue */
+            color: #1a73e8; /* Vibrant blue */
             text-decoration: none;
+            transition: color 0.3s ease;
         }
-
+    
         a:hover {
+            color: #1557b0; /* Darker blue */
             text-decoration: underline;
-            color: #00a8e8; /* Bright blue on hover */
         }
-
+    
         .section {
             margin-bottom: 40px;
+            padding: 20px;
+            background-color: #ffffff; /* Pure white */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-
+    
         .features ul {
-            list-style: disc;
-            margin-left: 20px;
+            list-style: none;
+            margin-left: 0;
         }
-
+    
         .features ul li {
             margin-bottom: 10px;
+            padding-left: 1.5rem;
+            position: relative;
         }
-
+    
+        .features ul li::before {
+            content: "•";
+            color: #009688; /* Teal accent */
+            position: absolute;
+            left: 0;
+        }
+    
         footer {
             text-align: center;
             margin-top: 50px;
+            padding: 20px;
             font-size: 0.9em;
-            color: #6c757d; /* Muted gray */
+            color: #6c757d; /* Medium gray */
+            background-color: #e9ecef; /* Light gray */
+            border-radius: 8px;
+        }
+    
+        /* Additional accent colors */
+        .install {
+            border-left: 4px solid #1a73e8; /* Vibrant blue */
+        }
+    
+        .citation pre {
+            background-color: #f1f3f5; /* Very light gray */
+            padding: 15px;
+            border-radius: 6px;
+        }
+    
+        select {
+            padding: 8px 12px;
+            border: 1px solid #dee2e6; /* Light border */
+            border-radius: 4px;
+            background-color: white;
+        }
+    
+        esp-web-install-button {
+            --esp-tools-button-background: #1a73e8;
+            --esp-tools-button-text-color: white;
         }
     </style>
 
@@ -104,7 +145,6 @@
                 <li>Low-cost implementation using widely available hardware like ESP32 modules.</li>
             </ul>
         </section>
-
         <section class="section architecture">
             <h3>System Architecture</h3>
             <p>
@@ -113,15 +153,11 @@
             </p>
             <img src="on-board-ros.svg" alt="ROS2 Node Architecture" style="width: 100%; margin-top: 20px;">
         </section>
-
         <section class="section submodules">
             <h3>Submodules</h3>
-            <ul>
-                <li><a href="./planning/README.md">Planning Module</a>: Tools and algorithms for autonomous UAV path planning.</li>
-                <li><a href="./communication_firmware/README.md">Communication Firmware</a>: ESP32 firmware enabling the communication capabilities of the system.</li>
-            </ul>
+            <a href="./planning/README.md">Planning Module</a>: Tools and algorithms for autonomous UAV path planning.
+            <a href="./communication_firmware/README.md">Communication Firmware</a>: ESP32 firmware enabling the communication capabilities of the system.
         </section>
-
         <section class="section install">
             <h3><span class="iconify" data-icon="mdi-download"></span> Install</h3>
             <p>
@@ -142,7 +178,21 @@
                 <a href="https://github.com/kasperg3/swarmtalk/issues">issues tab on GitHub</a>.
             </p>
         </section>
-
+        <section class="section citation">
+            <h3>Citation</h3>
+            <p>
+            If you use SwarmTalk in your research, please cite as follows:
+            </p>
+            <pre>
+<code>@inproceedings{grontved2025Communication,
+title={Communication for UAV Swarms: an Open-source, Low-cost Solution Based on ESP-NOW},
+author={Gr{\u{o}}ntved, Kasper AR and Ladig, Robert and Lyhne Christensen, Anders},
+booktitle={2024 International Conference on Unmanned Aircraft Systems (ICUAS)},
+year={2025},
+note={Accepted},
+organization={IEEE}
+}</code></pre>
+        </section>
         <section class="section contributing">
             <h3>Contributing</h3>
             <p>
