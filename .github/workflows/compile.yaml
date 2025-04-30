@@ -1,0 +1,131 @@
+name: ESP-IDF CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+    tags-ignore: [ '*' ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+  release:
+    types: [ created ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  packages: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build for ${{ matrix.idf_target }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    container:
+      image: espressif/idf:release-v5.4
+    strategy:
+      matrix:
+        idf_target: [esp32c3, esp32, esp32s3] # Add more targets as needed
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build project
+        run: |
+          set -e
+          . $IDF_PATH/export.sh
+          export SDKCONFIG_DEFAULTS=$(pwd)/sdkconfig.defaults
+          idf.py reconfigure set-target ${{ matrix.idf_target }} build
+      - name: Compress build artifacts
+        run: |
+          mkdir -p firmware-${{ matrix.idf_target }}
+          mv build/bootloader/bootloader.bin \
+             build/partition_table/partition-table.bin \
+             build/esp_comms.bin \
+             build/flasher_args.json \
+             firmware-${{ matrix.idf_target }}/
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.idf_target }}
+          path: firmware-${{ matrix.idf_target }}/
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download firmware artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: combined-firmware/
+
+      - name: Copy HTML page
+        run: |
+          cp -r _site/* combined-firmware/
+
+      - name: Combine firmware artifacts into a single zip
+        run: |
+          zip -r combined-firmware.zip combined-firmware/
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: combined-firmware/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  package:
+    name: Package all firmware
+    needs: build
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+      - name: Download all firmware artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+
+      - name: Combine firmware artifacts into a single zip
+        run: |
+          zip -j firmware-release.zip artifacts/
+
+      - name: Upload release asset using GH CLI
+        run: |
+          gh release upload ${{ github.event.release.tag_name }} firmware-release.zip \
+            --clobber \
+            --repo ${{ github.repository }}
+
+      - name: Verify upload
+        run: |
+          gh release view ${{ github.event.release.tag_name }} --json assets --jq '.assets[].name'

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwarmTalk</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        * {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d1b2a; /* Deep navy blue */
+            color: #e0e1dd; /* Light gray */
+            line-height: 1.6;
+        }
+
+        .main {
+            width: 90%;
+            margin: 20px auto;
+            max-width: 750px;
+        }
+
+        h2, h3 {
+            color: #00a8e8; /* Bright blue */
+        }
+
+        a {
+            color: #0077b6; /* Muted blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #00a8e8; /* Bright blue on hover */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .features ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .features ul li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #6c757d; /* Muted gray */
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <h2>SwarmTalk</h2>
+        <p>
+            SwarmTalk is an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. 
+            It leverages the 2.4GHz Wi-Fi spectrum and a connectionless protocol to enable UAVs to seamlessly exchange binary data through an ad-hoc network. 
+            The system integrates effortlessly with ROS 2, allowing UAVs to dynamically join or leave operations without centralized control or extensive pre-configuration.
+            <a href="https://github.com/kasperg3/SwarmTalk">Source code is available on GitHub</a>.
+        </p>
+
+        <section class="section features">
+            <h3>Features</h3>
+            <ul>
+                <li>Decentralized communication with no need for centralized infrastructure.</li>
+                <li>Ad-hoc networking for dynamic UAV participation.</li>
+                <li>Seamless ROS 2 integration for flexible UAV operations.</li>
+                <li>Low-cost implementation using widely available hardware like ESP32 modules.</li>
+            </ul>
+        </section>
+
+        <section class="section architecture">
+            <h3>System Architecture</h3>
+            <p>
+                The system architecture includes ROS 2 nodes running on the UAV’s onboard computer and an ESP32 module running the communication firmware. 
+                This ensures efficient and dynamic communication across UAVs, supporting flexible mission operations.
+            </p>
+            <img src=".assets/on-board-ros.svg" alt="ROS2 Node Architecture" style="width: 100%; margin-top: 20px;">
+        </section>
+
+        <section class="section submodules">
+            <h3>Submodules</h3>
+            <ul>
+                <li><a href="./planning/README.md">Planning Module</a>: Tools and algorithms for autonomous UAV path planning.</li>
+                <li><a href="./communication_firmware/README.md">Communication Firmware</a>: ESP32 firmware enabling the communication capabilities of the system.</li>
+            </ul>
+        </section>
+
+        <section class="section issues">
+            <h3>Report Issues</h3>
+            <p>
+                If you experience any issues with this project or have feature requests, please report them on the 
+                <a href="https://github.com/kasperg3/SwarmTalk/issues">issues tab on GitHub</a>.
+            </p>
+        </section>
+
+        <section class="section contributing">
+            <h3>Contributing</h3>
+            <p>
+                Contributions are welcome! Feel free to fork the repository, make changes, and submit a pull request. 
+                For more details, check the <a href="https://github.com/kasperg3/SwarmTalk/blob/main/CONTRIBUTING.md">contributing guidelines</a>.
+            </p>
+        </section>
+    </section>
+
+    <footer>
+        &copy; 2025 SwarmTalk. Built with ❤️ by the open-source community.
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{
+    "name": "RaptMate",
+    "version": "1.0.0",
+    "builds": [
+        {
+            "chipFamily": "ESP32-C3",
+            "parts": [
+                {
+                    "path": "firmware-esp32/bootloader.bin",
+                    "offset": 0
+                },
+                {
+                    "path": "firmware-esp32/esp_comms.bin",
+                    "offset": 65536
+                }
+            ]
+        }
+    ]
+}
