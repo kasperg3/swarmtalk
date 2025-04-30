@@ -17,8 +17,8 @@ This module is responsible for planning and communication between agents in a mu
 
 3. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-repo/DroneComms.git
-    cd DroneComms
+    git clone https://github.com/your-repo/swarmtalk.git
+    cd swarmtalk
     ```
 
 4. **Build and run the containers**:
@@ -37,8 +37,8 @@ This module is responsible for planning and communication between agents in a mu
 
 2. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-repo/DroneComms.git
-    cd DroneComms/planning
+    git clone https://github.com/your-repo/swarmtalk.git
+    cd swarmtalk/planning
     ```
 
 3. **Install dependencies**:
@@ -50,7 +50,7 @@ This module is responsible for planning and communication between agents in a mu
 
 4. **Build the ROS 2 workspace**:
     ```bash
-    cd /home/kang/workspace/DroneComms/planning
+    cd /home/kang/workspace/swarmtalk/planning
     source /opt/ros/humble/setup.bash
     colcon build
     ```

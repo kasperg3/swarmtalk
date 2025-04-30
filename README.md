@@ -1,8 +1,7 @@
-![DroneComms Overview](.assets/intro_picture.svg "DroneComms")
+# SwarmTalk
+![swarmtalk Overview](.assets/intro_picture.svg "DroneCoswarmtalkmms")
 
-# DroneComms
-
-DroneComms aims to break down the barriers to scalable multi-UAV systems by providing an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. Leveraging the 2.4GHz Wi-Fi spectrum and a connectionless protocol, this project simplifies deployment by enabling UAVs to seamlessly exchange binary data through an ad-hoc network—all while integrating effortlessly with ROS 2. With DroneComms, UAVs can dynamically join or leave operations without centralized control or extensive pre-configuration.
+swarmtalk aims to break down the barriers to scalable multi-UAV systems by providing an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. Leveraging the 2.4GHz Wi-Fi spectrum and a connectionless protocol, this project simplifies deployment by enabling UAVs to seamlessly exchange binary data through an ad-hoc network—all while integrating effortlessly with ROS 2. With swarmtalk, UAVs can dynamically join or leave operations without centralized control or extensive pre-configuration.
 
 ## Building
 Build all the packages, except the firmware package.
@@ -37,7 +36,7 @@ This architecture ensures efficient and dynamic communication across UAVs, suppo
 
 
 ## Citation
-If you use DroneComms in your research, please cite as follows:
+If you use swarmtalk in your research, please cite as follows:
 
 ```bibtex
 @inproceedings{grontved2025Communication,
