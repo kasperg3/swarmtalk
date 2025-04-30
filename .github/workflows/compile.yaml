@@ -43,6 +43,7 @@ jobs:
 
       - name: Build project
         run: |
+          cd communication_firmware
           set -e
           . $IDF_PATH/export.sh
           export SDKCONFIG_DEFAULTS=$(pwd)/sdkconfig.defaults
