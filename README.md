@@ -1,5 +1,5 @@
 # SwarmTalk
-![swarmtalk Overview](.assets/intro_picture.svg "DroneCoswarmtalkmms")
+![swarmtalk Overview](_site/intro_picture.svg "DroneCoswarmtalkmms")
 
 swarmtalk aims to break down the barriers to scalable multi-UAV systems by providing an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. Leveraging the 2.4GHz Wi-Fi spectrum and a connectionless protocol, this project simplifies deployment by enabling UAVs to seamlessly exchange binary data through an ad-hoc network—all while integrating effortlessly with ROS 2. With swarmtalk, UAVs can dynamically join or leave operations without centralized control or extensive pre-configuration.
 
@@ -11,7 +11,7 @@ colcon build --symlink-install --packages-skip swarmtalk_firmware
 
 ## System Architecture
 
-![ROS2 Node Architecture](.assets/on-board-ros.svg "ROS")
+![ROS2 Node Architecture](_site/on-board-ros.svg "ROS")
 
 The diagram above illustrates the ROS 2 nodes implemented in the communication module package and their corresponding topics for interfacing. Key components include:
 

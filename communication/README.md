@@ -1,6 +1,6 @@
 # Communication Driver Node
 
-![ROS Communication Topics](../.assets/on-board-ros.svg)
+![ROS Communication Topics](../_site/on-board-ros.svg)
 
 ## Overview
 The `CommunicationDriver` node is responsible for handling serial communication between a ROS 2 system and an external device. It reads messages from the serial port, processes them, and publishes them to a ROS topic. It also listens to a ROS topic for messages to send to the serial port.
