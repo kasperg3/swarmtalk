@@ -61,6 +61,28 @@
             color: #6c757d; /* Muted gray */
         }
     </style>
+
+    <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
+    <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+    <script>
+        async function fetchChangelog() {
+            const response = await fetch("https://api.github.com/repos/kasperg3/RaptMate/releases/latest");
+            const data = await response.json();
+            document.getElementById("changelog-body").innerText = data.body;
+            document.getElementById("changelog-header-version").innerText += data.tag_name;
+        }
+
+        function setInstallButton(esp) {
+            document.getElementById("install-btn").innerHTML = `<esp-web-install-button manifest="https://blog.grontved.dk/SwarmTalk/manifest-${esp}.json"></esp-web-install-button>`;
+        }
+
+        function setInstallButtonDefault() {
+            setInstallButton("esp32c3");
+        }
+
+        fetchChangelog();
+        window.onload = setInstallButtonDefault;
+    </script>
 </head>
 
 <body>
@@ -100,6 +122,18 @@
             </ul>
         </section>
 
+        <section class="section install">
+            <h3><span class="iconify" data-icon="mdi-download"></span> Install</h3>
+            <p>
+                Select your device from the list below and click 'Connect'.<br>
+                Note: You may need to hold the 'BOOT' button on the device while pressing install.
+            </p>
+            <select id="select-install-btn" onchange="setInstallButton(getElementById('select-install-btn').value)">
+                <option value="esp32c3">esp32c3</option>
+                <option value="esp32s3">esp32s3</option>
+            </select>
+            <span id="install-btn"></span>
+        </section>
         <section class="section issues">
             <h3>Report Issues</h3>
             <p>
