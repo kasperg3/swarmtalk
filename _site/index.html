@@ -66,14 +66,14 @@
     <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
     <script>
         async function fetchChangelog() {
-            const response = await fetch("https://api.github.com/repos/kasperg3/RaptMate/releases/latest");
+            const response = await fetch("https://api.github.com/repos/kasperg3/SwarmTalk/releases/latest");
             const data = await response.json();
             document.getElementById("changelog-body").innerText = data.body;
             document.getElementById("changelog-header-version").innerText += data.tag_name;
         }
 
         function setInstallButton(esp) {
-            document.getElementById("install-btn").innerHTML = `<esp-web-install-button manifest="https://blog.grontved.dk/SwarmTalk/manifest-${esp}.json"></esp-web-install-button>`;
+            document.getElementById("install-btn").innerHTML = `<esp-web-install-button manifest="https://blog.grontved.dk/swarmtalk/manifest-${esp}.json"></esp-web-install-button>`;
         }
 
         function setInstallButtonDefault() {
@@ -92,7 +92,7 @@
             SwarmTalk is an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. 
             It leverages the 2.4GHz Wi-Fi spectrum and a connectionless protocol to enable UAVs to seamlessly exchange binary data through an ad-hoc network. 
             The system integrates effortlessly with ROS 2, allowing UAVs to dynamically join or leave operations without centralized control or extensive pre-configuration.
-            <a href="https://github.com/kasperg3/SwarmTalk">Source code is available on GitHub</a>.
+            <a href="https://github.com/kasperg3/swarmtalk">Source code is available on GitHub</a>.
         </p>
 
         <section class="section features">
@@ -130,6 +130,7 @@
             </p>
             <select id="select-install-btn" onchange="setInstallButton(getElementById('select-install-btn').value)">
                 <option value="esp32c3">esp32c3</option>
+                <option value="esp32c6">esp32c6</option>
                 <option value="esp32s3">esp32s3</option>
             </select>
             <span id="install-btn"></span>
@@ -138,7 +139,7 @@
             <h3>Report Issues</h3>
             <p>
                 If you experience any issues with this project or have feature requests, please report them on the 
-                <a href="https://github.com/kasperg3/SwarmTalk/issues">issues tab on GitHub</a>.
+                <a href="https://github.com/kasperg3/swarmtalk/issues">issues tab on GitHub</a>.
             </p>
         </section>
 
@@ -146,7 +147,7 @@
             <h3>Contributing</h3>
             <p>
                 Contributions are welcome! Feel free to fork the repository, make changes, and submit a pull request. 
-                For more details, check the <a href="https://github.com/kasperg3/SwarmTalk/blob/main/CONTRIBUTING.md">contributing guidelines</a>.
+                For more details, check the <a href="https://github.com/kasperg3/swarmtalk/blob/main/CONTRIBUTING.md">contributing guidelines</a>.
             </p>
         </section>
     </section>
