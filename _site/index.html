@@ -15,6 +15,61 @@
             box-sizing: border-box;
         }
     
+        .header-container {
+            background: linear-gradient(135deg, #2a6f97 0%, #1a73e8 100%);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+    
+        .main h2 {
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 600;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+    
+        .main h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #009688;
+            border-radius: 2px;
+        }
+    
+        .header-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+    
+        .header-subtitle a {
+            color: #a8d8ff;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+    
+        .header-subtitle a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+    
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main h2 {
+                font-size: 2rem;
+            }
+            .header-subtitle {
+                font-size: 1rem;
+            }
+        }
         body {
             background-color: #f8f9fa; /* Soft off-white */
             color: #2d3436; /* Dark charcoal gray */
@@ -127,8 +182,17 @@
 </head>
 
 <body>
+
+    <div class="header-container">
+        <section class="main">
+            <h2>SwarmTalk</h2>
+            <p class="header-subtitle">
+                Open-source decentralized communication for UAV swarms · 
+                <a href="https://github.com/kasperg3/swarmtalk">View on GitHub</a>
+            </p>
+        </section>
+    </div>
     <section class="main">
-        <h2>SwarmTalk</h2>
         <p>
             SwarmTalk is an open-source, low-cost, and plug-and-play solution for decentralized UAV-to-UAV communication. 
             It leverages the 2.4GHz Wi-Fi spectrum and a connectionless protocol to enable UAVs to seamlessly exchange binary data through an ad-hoc network. 
